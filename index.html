@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Non-Zoomable Video Calculator</title>
+    <title>Fullscreen Video Calculator</title>
     <style>
         * {
             box-sizing: border-box;
@@ -30,12 +30,9 @@
 
         .calculator-container {
             position: relative;
-            width: 90%;
-            max-width: 400px;
-            aspect-ratio: 3 / 4;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         #background-video {
@@ -49,22 +46,24 @@
         }
 
         .calculator {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
+            padding: 5vh 5vw;
             display: flex;
             flex-direction: column;
         }
 
         #display {
             width: 100%;
-            height: 60px;
-            font-size: 1.5rem;
+            height: 10vh;
+            font-size: 5vh;
             text-align: right;
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 2vh;
+            margin-bottom: 2vh;
             border: none;
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
@@ -74,12 +73,12 @@
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 2vh;
             flex-grow: 1;
         }
 
         button {
-            font-size: 1.125rem;
+            font-size: 4vh;
             border: none;
             border-radius: 5px;
             background-color: rgba(255, 255, 255, 0.1);
@@ -120,21 +119,6 @@
         .clear:hover {
             background-color: rgba(244, 67, 54, 0.7);
         }
-
-        @media (min-width: 768px) {
-            .calculator-container {
-                max-width: 500px;
-            }
-
-            #display {
-                height: 80px;
-                font-size: 2rem;
-            }
-
-            button {
-                font-size: 1.5rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -146,6 +130,7 @@
         <div class="calculator">
             <input type="text" id="display" readonly>
             <div class="buttons">
+                <button class="clear" onclick="clearDisplay()">AC</button>
                 <button onclick="appendToDisplay('7')">7</button>
                 <button onclick="appendToDisplay('8')">8</button>
                 <button onclick="appendToDisplay('9')">9</button>
@@ -162,7 +147,7 @@
                 <button onclick="appendToDisplay('.')">.</button>
                 <button class="equals" onclick="calculate()">=</button>
                 <button class="operator" onclick="appendToDisplay('+')">+</button>
-                <button class="clear" onclick="clearDisplay()">C</button>
+                
             </div>
         </div>
     </div>
@@ -211,4 +196,4 @@
         }, { passive: false });
     </script>
 </body>
-    </html>
+                                                            </html>
